@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jannatul ♡ Habib — গ্লাস ব্লার</title>
+  <title>Jannatul ♡ Habib — পরিশোধিত ডিজাইন</title>
   <style>
     * {
       margin: 0;
@@ -36,13 +36,11 @@
       touch-action: manipulation;
     }
 
-    /* ===== গ্লাস কার্ড — সম্পূর্ণ ব্লার (আপডেটেড) ===== */
+    /* ===== গ্লাস কার্ড — সম্পূর্ণ ব্লার ===== */
     .glass-card {
       width: 360px;
       max-width: 85vw;
-      /* ব্যাকগ্রাউন্ড খুব হালকা ও স্বচ্ছ, কিন্তু ব্লার হবে */
       background: rgba(255, 240, 250, 0.12);
-      /* মূল ফিচার: 25px ব্লার + রঙ বাড়ানো */
       backdrop-filter: blur(25px) saturate(300%);
       -webkit-backdrop-filter: blur(25px) saturate(300%);
       border: 2px solid rgba(255, 215, 0, 0.3);
@@ -56,7 +54,7 @@
       position: relative;
     }
 
-    /* মেয়ের নাম ও ছেলের নাম — সোনালী/সাদা গ্রেডিয়েন্ট */
+    /* ===== নাম দুইটা — অতিরিক্ত গ্লো/শ্যাডো সম্পূর্ণ সরানো ===== */
     .girl-name, .boy-name {
       font-family: 'Pacifico', 'Brush Script MT', cursive;
       font-weight: 700;
@@ -64,8 +62,9 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 20px #ffb347, 0 0 40px #ffa500, 0 0 60px #f1c40f;
-      filter: drop-shadow(0 4px 10px #f39c12);
+      /* নিচের দুই লাইন সরিয়ে দেওয়া হয়েছে — গ্লো/শ্যাডো নেই */
+      /* text-shadow: 0 0 20px #ffb347, 0 0 40px #ffa500, 0 0 60px #f1c40f; */
+      /* filter: drop-shadow(0 4px 10px #f39c12); */
       line-height: 1.2;
       letter-spacing: 2px;
     }
@@ -82,9 +81,9 @@
       margin-top: 5px;
     }
 
-    /* ছন্দের বক্স */
+    /* ===== ছন্দের বক্স ===== */
     .verse-box {
-      background: rgba(25, 10, 30, 0.5); /* একটু গাঢ়, কিন্তু ব্লার কার্ডের সাথে মিশে যাবে */
+      background: rgba(25, 10, 30, 0.5);
       backdrop-filter: blur(4px);
       border: 2px solid #ffd700;
       border-radius: 50px 10px 50px 10px;
@@ -98,14 +97,15 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* ছন্দ টেক্সট - স্টাইলিশ বাংলা ফন্ট */
+    /* ===== বাংলা ছন্দ — স্টাইলিশ ফন্ট (আপডেটেড) ===== */
     #loveMessage {
       font-size: 18px;
       font-weight: 500;
       color: #fff5fc;
-      line-height: 1.6;
+      line-height: 1.8; /* একটু বেশি স্পেস দেয়া হয়েছে পড়তে সুবিধা */
       word-break: break-word;
-      font-family: 'Li Suzer', 'Li Alinjar', 'SolaimanLipi', 'AponaLohit', 'Mita', 'Kohinoor Bangla', 'Segoe UI', sans-serif;
+      /* উন্নত বাংলা ফন্ট স্ট্যাক — একদম স্টাইলিশ */
+      font-family: 'Noto Serif Bengali', 'Siyam Rupali', 'SolaimanLipi', 'AponaLohit', 'Mita', 'Kohinoor Bangla', 'Segoe UI', serif;
       text-shadow: 0 2px 12px #ff1493, 0 0 25px #ff69b4;
       text-align: center;
       transition: transform 0.3s ease, opacity 0.3s ease;
@@ -172,6 +172,10 @@
       transform: translateY(0);
     }
   </style>
+  <!-- গুগল ফন্ট থেকে Noto Serif Bengali (স্টাইলিশ বাংলা ফন্ট) যোগ করা হলো -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
