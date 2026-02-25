@@ -35,26 +35,26 @@
       display: block;
     }
 
-    /* গ্লাস কার্ড */
+    /* গ্লাস কার্ড - সাইজ ছোট করা হয়েছে */
     .glass-card {
-      width: 420px;
-      max-width: 90vw;
-      background: rgba(8, 5, 20, 0.55);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      width: 360px; /* আগে 420px ছিল */
+      max-width: 85vw;
+      background: rgba(8, 5, 20, 0.5); /* একটু কম অস্বচ্ছ */
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
       border: 2px solid rgba(255, 215, 0, 0.4);
-      border-radius: 70px 20px 70px 20px;
-      padding: 28px 20px 30px;
-      box-shadow: 0 30px 60px rgba(255, 105, 180, 0.4), 
+      border-radius: 60px 15px 60px 15px; /* একটু কম rounded */
+      padding: 20px 15px 22px; /* padding কমানো হয়েছে */
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 
                   0 0 0 2px rgba(255, 182, 193, 0.3) inset,
-                  0 0 80px #9400d3;
+                  0 0 60px #9400d3;
       text-align: center;
       z-index: 20;
       position: relative;
       border: 1px solid rgba(255, 223, 0, 0.6);
     }
 
-    /* মেয়ের নাম ও ছেলের নাম একই স্টাইলিশ ফন্টে */
+    /* মেয়ের নাম ও ছেলের নাম - সাইজ একটু ছোট */
     .girl-name, .boy-name {
       font-family: 'Pacifico', 'Brush Script MT', cursive;
       font-weight: 700;
@@ -68,43 +68,48 @@
     }
 
     .girl-name {
-      font-size: 56px;
+      font-size: 48px; /* আগে 56px ছিল */
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
-    /* ছন্দের বক্স - বড় করা হয়েছে */
+    /* ছন্দের বক্স - সাইজ ছোট, ব্যাকগ্রাউন্ড হালকা */
     .verse-box {
-      background: rgba(25, 10, 30, 0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(25, 10, 30, 0.6); /* একটু কম অস্বচ্ছ */
+      backdrop-filter: blur(6px);
       border: 2px solid #ffd700;
-      border-radius: 60px 12px 60px 12px;
-      padding: 30px 20px;
-      margin: 18px 0 20px;
-      box-shadow: 0 12px 0 #4a0040, 0 0 60px #ff69b4;
-      min-height: 180px;
+      border-radius: 50px 10px 50px 10px; /* ছোট rounded */
+      padding: 20px 15px; /* padding কমানো */
+      margin: 12px 0 15px; /* margin কমানো */
+      box-shadow: 0 10px 0 #4a0040, 0 0 50px #ff69b4;
+      min-height: 130px; /* উচ্চতা কমানো */
       display: flex;
       align-items: center;
       justify-content: center;
+      /* এনিমেশন ট্রানজিশনের জন্য */
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
+    /* ছন্দ টেক্সট - সাইজ ছোট */
     #loveMessage {
-      font-size: 22px;
+      font-size: 18px; /* আগে 22px ছিল */
       font-weight: 500;
       color: #fff5fc;
-      line-height: 1.8;
+      line-height: 1.6;
       word-break: break-word;
       font-family: 'Kohinoor Bangla', 'Segoe UI', sans-serif;
-      text-shadow: 0 2px 15px #ff1493, 0 0 30px #ff69b4;
+      text-shadow: 0 2px 12px #ff1493, 0 0 25px #ff69b4;
       text-align: center;
+      /* এনিমেশনের জন্য */
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* ছেলের নাম - মেয়ের নামের স্টাইলেই */
+    /* ছেলের নাম - সাইজ ছোট */
     .boy-name {
-      font-size: 48px;
+      font-size: 40px; /* আগে 48px ছিল */
       letter-spacing: 2px;
       border-bottom: 2px dashed #ffd700;
-      padding-bottom: 8px;
+      padding-bottom: 5px;
       margin-top: 5px;
     }
 
@@ -120,16 +125,16 @@
 
     .dev-btn {
       display: inline-block;
-      background: rgba(10, 5, 20, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 8px 30px;
-      border-radius: 50px;
+      background: rgba(10, 5, 20, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 6px 25px; /* padding কমানো */
+      border-radius: 40px;
       border: 1.5px solid #ffd700;
       color: #ffe6f0;
-      font-size: 16px;
+      font-size: 14px; /* font ছোট */
       font-weight: 500;
       text-decoration: none;
-      box-shadow: 0 0 30px #ff1493;
+      box-shadow: 0 0 25px #ff1493;
       transition: 0.2s;
       letter-spacing: 1px;
     }
@@ -138,17 +143,35 @@
       background: #ff149340;
       border-color: white;
       color: white;
-      box-shadow: 0 0 50px #ff69b4;
+      box-shadow: 0 0 40px #ff69b4;
     }
 
     .tap-hint {
-      font-size: 13px;
-      margin-top: 15px;
+      font-size: 11px; /* font ছোট */
+      margin-top: 12px;
       color: #ffd700;
       opacity: 0.9;
-      letter-spacing: 1.5px;
-      text-shadow: 0 0 15px #ff1493;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 12px #ff1493;
       font-weight: 400;
+    }
+
+    /* ছন্দ পরিবর্তনের এনিমেশন ক্লাস */
+    .verse-box.pop-out {
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+    .verse-box.pop-in {
+      transform: scale(1);
+      opacity: 1;
+    }
+    #loveMessage.fade-out {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    #loveMessage.fade-in {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -158,7 +181,7 @@
 
   <div class="glass-card">
     <div class="girl-name">Jannatul</div>
-    <div class="verse-box">
+    <div class="verse-box" id="verseBox">
       <div id="loveMessage">🌙 জোৎস্না রাতে শুধু তুমি</div>
     </div>
     <div class="boy-name">Habib Sikdar</div>
@@ -200,6 +223,36 @@
       ];
 
       let currentIdx = 0;
+
+      // DOM এলিমেন্টস
+      const verseBox = document.getElementById('verseBox');
+      const loveMessageEl = document.getElementById('loveMessage');
+
+      // ফাংশন যা এনিমেশন সহকারে মেসেজ পরিবর্তন করবে
+      function changeMessageWithAnimation(newMessage) {
+        // আউট এনিমেশন
+        verseBox.classList.add('pop-out');
+        loveMessageEl.classList.add('fade-out');
+        
+        // সামান্য দেরিতে ইন এনিমেশন শুরু এবং টেক্সট পরিবর্তন
+        setTimeout(() => {
+          // টেক্সট পরিবর্তন
+          loveMessageEl.innerText = newMessage;
+          
+          // আউট ক্লাস রিমুভ করে ইন ক্লাস অ্যাড
+          verseBox.classList.remove('pop-out');
+          loveMessageEl.classList.remove('fade-out');
+          
+          verseBox.classList.add('pop-in');
+          loveMessageEl.classList.add('fade-in');
+        }, 150); // 150ms পর নতুন টেক্সট দেখাবে
+        
+        // ইন এনিমেশন শেষে ক্লাস পরিষ্কার (পরবর্তী ক্লিকের জন্য)
+        setTimeout(() => {
+          verseBox.classList.remove('pop-in');
+          loveMessageEl.classList.remove('fade-in');
+        }, 300); // 300ms = মোট এনিমেশন সময়
+      }
 
       // ---------- রিয়েলিস্টিক নাইট স্কাই + লাভ বাবল ----------
       const canvas = document.getElementById('bubbleCanvas');
@@ -419,8 +472,10 @@
               }, 100);
             }
             
+            // পরবর্তী ছন্দ নির্বাচন
             currentIdx = (currentIdx + 1) % loveLines.length;
-            document.getElementById('loveMessage').innerText = loveLines[currentIdx];
+            // এনিমেশন সহ ছন্দ পরিবর্তন
+            changeMessageWithAnimation(loveLines[currentIdx]);
             
             break;
           }
