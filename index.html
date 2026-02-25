@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jannatul ♡ Habib — পরিশোধিত ডিজাইন</title>
+  <title>Jannatul ♡ Habib </title>
   <style>
     * {
       margin: 0;
@@ -36,16 +36,16 @@
       touch-action: manipulation;
     }
 
-    /* ===== গ্লাস কার্ড — সম্পূর্ণ ব্লার ===== */
+    /* ===== গ্লাস কার্ড — সাইজ একটু বড় ===== */
     .glass-card {
-      width: 360px;
-      max-width: 85vw;
+      width: 420px;
+      max-width: 90vw;
       background: rgba(255, 240, 250, 0.12);
       backdrop-filter: blur(25px) saturate(300%);
       -webkit-backdrop-filter: blur(25px) saturate(300%);
       border: 2px solid rgba(255, 215, 0, 0.3);
-      border-radius: 60px 15px 60px 15px;
-      padding: 20px 15px 22px;
+      border-radius: 70px 20px 70px 20px;
+      padding: 25px 20px 25px;
       box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 
                   0 0 0 2px rgba(255, 182, 193, 0.2) inset,
                   0 0 60px #9400d3;
@@ -54,7 +54,65 @@
       position: relative;
     }
 
-    /* ===== নাম দুইটা — অতিরিক্ত গ্লো/শ্যাডো সম্পূর্ণ সরানো ===== */
+    /* ===== নামের উপরের লাভের কন্টেইনার ===== */
+    .love-icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+      height: 70px; /* লাভের জন্য জায়গা */
+    }
+
+    /* ===== স্পন্দনশীল আউটলাইন লাভ (রেখা দিয়ে আঁকা) ===== */
+    .outline-heart {
+      width: 60px;
+      height: 60px;
+      /* শুধু রেখা দিয়ে লাভ আঁকা - SVG পাথ ব্যবহার করে */
+      background: transparent;
+      border: none;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* SVG দিয়ে লাভের রেখা আঁকা */
+    .outline-heart svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 15px #ffaa00);
+      animation: outlineHeartbeat 1.8s ease-in-out infinite;
+    }
+
+    .outline-heart path {
+      fill: none;
+      stroke: #ffaa00; /* সোনালী-কমলা রং (লাল নয়) */
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* স্পন্দন অ্যানিমেশন */
+    @keyframes outlineHeartbeat {
+      0% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.25); /* বড় */
+      }
+      35% {
+        transform: scale(1.1); /* একটু ছোট */
+      }
+      45% {
+        transform: scale(1.2); /* আবার বড় */
+      }
+      55% {
+        transform: scale(1); /* ফিরে আসা */
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* ===== নাম দুইটা — গ্লো/শ্যাডো ছাড়া ===== */
     .girl-name, .boy-name {
       font-family: 'Pacifico', 'Brush Script MT', cursive;
       font-weight: 700;
@@ -62,23 +120,20 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      /* নিচের দুই লাইন সরিয়ে দেওয়া হয়েছে — গ্লো/শ্যাডো নেই */
-      /* text-shadow: 0 0 20px #ffb347, 0 0 40px #ffa500, 0 0 60px #f1c40f; */
-      /* filter: drop-shadow(0 4px 10px #f39c12); */
       line-height: 1.2;
       letter-spacing: 2px;
     }
 
     .girl-name {
       font-size: 48px;
-      margin-bottom: 5px;
+      margin-top: 0px;
     }
 
     .boy-name {
       font-size: 40px;
       border-bottom: 2px dashed #ffd966;
       padding-bottom: 5px;
-      margin-top: 5px;
+      margin-top: 10px;
     }
 
     /* ===== ছন্দের বক্স ===== */
@@ -88,23 +143,22 @@
       border: 2px solid #ffd700;
       border-radius: 50px 10px 50px 10px;
       padding: 20px 15px;
-      margin: 12px 0 15px;
+      margin: 15px 0 15px;
       box-shadow: 0 10px 0 #4a0040, 0 0 50px #ff69b4;
-      min-height: 130px;
+      min-height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* ===== বাংলা ছন্দ — স্টাইলিশ ফন্ট (আপডেটেড) ===== */
+    /* ===== বাংলা ছন্দ — স্টাইলিশ ফন্ট ===== */
     #loveMessage {
       font-size: 18px;
       font-weight: 500;
       color: #fff5fc;
-      line-height: 1.8; /* একটু বেশি স্পেস দেয়া হয়েছে পড়তে সুবিধা */
+      line-height: 1.8;
       word-break: break-word;
-      /* উন্নত বাংলা ফন্ট স্ট্যাক — একদম স্টাইলিশ */
       font-family: 'Noto Serif Bengali', 'Siyam Rupali', 'SolaimanLipi', 'AponaLohit', 'Mita', 'Kohinoor Bangla', 'Segoe UI', serif;
       text-shadow: 0 2px 12px #ff1493, 0 0 25px #ff69b4;
       text-align: center;
@@ -146,7 +200,7 @@
 
     .tap-hint {
       font-size: 11px;
-      margin-top: 12px;
+      margin-top: 15px;
       color: #ffd700;
       opacity: 0.9;
       letter-spacing: 1.2px;
@@ -172,7 +226,7 @@
       transform: translateY(0);
     }
   </style>
-  <!-- গুগল ফন্ট থেকে Noto Serif Bengali (স্টাইলিশ বাংলা ফন্ট) যোগ করা হলো -->
+  <!-- গুগল ফন্ট থেকে Noto Serif Bengali -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
@@ -182,10 +236,22 @@
   <canvas id="bubbleCanvas"></canvas>
 
   <div class="glass-card">
+    <!-- আউটলাইন লাভ আইকন — জান্নাতুল নামের উপরে -->
+    <div class="love-icon-container">
+      <div class="outline-heart">
+        <!-- SVG দিয়ে রেখা/দাগের লাভ আঁকা (ভিতর ফাঁকা) -->
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 40 C 20 35, 5 25, 5 15 C 5 8, 12 5, 18 8 C 22 10, 25 15, 25 15 C 25 15, 28 10, 32 8 C 38 5, 45 8, 45 15 C 45 25, 30 35, 25 40 Z" />
+        </svg>
+      </div>
+    </div>
+    
     <div class="girl-name">Jannatul</div>
+    
     <div class="verse-box" id="verseBox">
       <div id="loveMessage">🪷 তোমার ভালোবাসায় জীবন ধন্য, হৃদয় পূর্ণ, স্বপ্ন সম্পূর্ণ।</div>
     </div>
+    
     <div class="boy-name">Habib Sikdar</div>
     <div class="tap-hint">❤️ স্ক্রিনের যেকোনো জায়গায় টাচ করো — নতুন ছন্দ ❤️</div>
   </div>
