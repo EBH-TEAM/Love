@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jannatul ♡ Habib — টাচ ইফেক্ট</title>
+  <title>Jannatul ♡ Habib — গ্লাস ব্লার</title>
   <style>
     * {
       margin: 0;
@@ -33,33 +33,33 @@
       height: 100%;
       z-index: 1;
       display: block;
-      touch-action: manipulation; /* টাচ ইভেন্ট ঠিকভাবে কাজ করবে */
+      touch-action: manipulation;
     }
 
-    /* গ্লাস কার্ড - ডিজাইন একই, কিন্তু নামের রং পরিবর্তন (গোলাপী কমিয়ে দেওয়া) */
+    /* ===== গ্লাস কার্ড — সম্পূর্ণ ব্লার (আপডেটেড) ===== */
     .glass-card {
       width: 360px;
       max-width: 85vw;
-      background: rgba(8, 5, 20, 0.5);
-      backdrop-filter: blur(14px) saturate(160%);
-      -webkit-backdrop-filter: blur(14px) saturate(160%);
-      border: 2px solid rgba(255, 215, 0, 0.4);
+      /* ব্যাকগ্রাউন্ড খুব হালকা ও স্বচ্ছ, কিন্তু ব্লার হবে */
+      background: rgba(255, 240, 250, 0.12);
+      /* মূল ফিচার: 25px ব্লার + রঙ বাড়ানো */
+      backdrop-filter: blur(25px) saturate(300%);
+      -webkit-backdrop-filter: blur(25px) saturate(300%);
+      border: 2px solid rgba(255, 215, 0, 0.3);
       border-radius: 60px 15px 60px 15px;
       padding: 20px 15px 22px;
       box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4), 
-                  0 0 0 2px rgba(255, 182, 193, 0.3) inset,
+                  0 0 0 2px rgba(255, 182, 193, 0.2) inset,
                   0 0 60px #9400d3;
       text-align: center;
       z-index: 20;
       position: relative;
-      border: 1px solid rgba(255, 223, 0, 0.6);
     }
 
-    /* মেয়ের নাম ও ছেলের নাম — এখন আর গোলাপী নয়, সোনালী+সাদা গ্রেডিয়েন্ট, স্পষ্ট হবে */
+    /* মেয়ের নাম ও ছেলের নাম — সোনালী/সাদা গ্রেডিয়েন্ট */
     .girl-name, .boy-name {
       font-family: 'Pacifico', 'Brush Script MT', cursive;
       font-weight: 700;
-      /* গোলাপী বাদ — সোনালী/হালকা কমলা গ্রেডিয়েন্ট */
       background: linear-gradient(135deg, #f9e07c, #ffd966, #ffe69b);
       -webkit-background-clip: text;
       background-clip: text;
@@ -77,15 +77,15 @@
 
     .boy-name {
       font-size: 40px;
-      border-bottom: 2px dashed #ffd966; /* সোনালী ড্যাশ */
+      border-bottom: 2px dashed #ffd966;
       padding-bottom: 5px;
       margin-top: 5px;
     }
 
-    /* ছন্দের বক্স - বাংলা স্টাইলিশ ফন্টের জন্য লি ইউজিপি */
+    /* ছন্দের বক্স */
     .verse-box {
-      background: rgba(25, 10, 30, 0.6);
-      backdrop-filter: blur(6px);
+      background: rgba(25, 10, 30, 0.5); /* একটু গাঢ়, কিন্তু ব্লার কার্ডের সাথে মিশে যাবে */
+      backdrop-filter: blur(4px);
       border: 2px solid #ffd700;
       border-radius: 50px 10px 50px 10px;
       padding: 20px 15px;
@@ -98,14 +98,13 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* ছন্দ টেক্সট - স্টাইলিশ বাংলা ফন্ট (লি ইউজিপি, সোলাইমানলি, মিতা) */
+    /* ছন্দ টেক্সট - স্টাইলিশ বাংলা ফন্ট */
     #loveMessage {
       font-size: 18px;
       font-weight: 500;
       color: #fff5fc;
       line-height: 1.6;
       word-break: break-word;
-      /* স্টাইলিশ বাংলা ফন্ট ফ্যামিলি */
       font-family: 'Li Suzer', 'Li Alinjar', 'SolaimanLipi', 'AponaLohit', 'Mita', 'Kohinoor Bangla', 'Segoe UI', sans-serif;
       text-shadow: 0 2px 12px #ff1493, 0 0 25px #ff69b4;
       text-align: center;
@@ -173,7 +172,6 @@
       transform: translateY(0);
     }
   </style>
-  <!-- গুগল ফন্ট (ইংরেজি সাজানোর জন্য) ওপেন সোর্স বাংলা ফন্ট নেই, তবে লোকাল ফন্ট ব্যবহার করবে -->
 </head>
 <body>
 
@@ -194,7 +192,7 @@
 
   <script>
     (function() {
-      // ---------- বাংলা প্রেমের ছন্দ (স্টাইলিশ ফন্টে দেখাবে) ----------
+      // ---------- বাংলা প্রেমের ছন্দ ----------
       const loveLines = [
         "🌙 জোৎস্না রাতে যখন আকাশ ভরে সাদা আলোয়, তখনও আমার মনে শুধু তোমারই নাম জ্বলে।",
         "⭐ তারাভরা আকাশের মতোই তুমি — অগণিত স্বপ্ন আর আলো নিয়ে আমার জীবনে এসেছো।",
@@ -257,7 +255,7 @@
       const BUBBLE_COUNT = 20;
       let bubbles = [];
       let stars = [];
-      let sparks = [];      // স্পার্ক এখন শুধু বাবল ফেটে যাওয়ার জন্য
+      let sparks = [];
 
       function random(min, max) {
         return Math.random() * (max - min) + min;
@@ -303,7 +301,6 @@
         }
       }
 
-      // বাবল ফেটে স্পার্ক (শুধু বাবল ক্লিক করলেই)
       function createSparks(x, y, color) {
         for (let i = 0; i < 12; i++) {
           sparks.push({
@@ -318,12 +315,8 @@
         }
       }
 
-      // একটি নতুন বাবল তৈরি (টাচ পয়েন্টে)
       function createNewBubbleAt(x, y) {
-        // যদি বাবলের সংখ্যা সীমা ছাড়ায় তবে পুরনো একটি সরানো যেতে পারে, কিন্তু আমরা সরাসরি পুশ করি
-        // তবে অনিয়ন্ত্রিত বৃদ্ধি রোধে যদি 30-এর বেশি হয় তবে কিছু না বা পুরনো ফেলে দিই
         if (bubbles.length > 35) {
-          // সরিয়ে ফেলি সবচেয়ে পুরনোটা (প্রথম এলিমেন্ট)
           bubbles.shift();
         }
         bubbles.push({
@@ -394,15 +387,13 @@
       function drawScene() {
         ctx.clearRect(0, 0, width, height);
         
-        // ডার্ক গ্রেডিয়েন্ট (আগের চেয়ে একটু ডার্ক)
         const gradient = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, Math.max(width, height));
-        gradient.addColorStop(0, '#02010c');    // আরও ডার্ক
+        gradient.addColorStop(0, '#02010c');
         gradient.addColorStop(0.6, '#080414');
         gradient.addColorStop(1, '#10071f');
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
         
-        // তারার ঝলক
         for (let s of stars) {
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
@@ -411,7 +402,6 @@
           ctx.fill();
         }
         
-        // হালকা সোনালী আভা
         ctx.save();
         ctx.shadowColor = '#ffd700';
         ctx.shadowBlur = 80;
@@ -419,7 +409,6 @@
         ctx.fillRect(0, 0, width, height);
         ctx.restore();
         
-        // বাবলগুলো (হৃদয়)
         for (let b of bubbles) {
           const pulseScale = 1 + Math.sin(Date.now() * 0.002 * b.pulse) * 0.05;
           drawHeart(
@@ -439,7 +428,6 @@
           ctx.restore();
         }
         
-        // স্পার্ক (শুধু বাবল ফাটলে)
         for (let s of sparks) {
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
@@ -457,23 +445,19 @@
         requestAnimationFrame(animate);
       }
 
-      // ---------- টাচ / ক্লিক হ্যান্ডলার (মডিফাই করা) ----------
+      // ---------- টাচ / ক্লিক হ্যান্ডলার ----------
       function handleCanvasInteraction(e) {
-        // টাচ ইভেন্টের জন্য প্রিভেন্ট ডিফল্ট (যাতে স্ক্রল না হয়)
         e.preventDefault(); 
         
-        // ক্যানভাসের সাপেক্ষে পয়েন্ট বের করা
         const rect = canvas.getBoundingClientRect();
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
         
         let clientX, clientY;
         if (e.touches) {
-          // টাচ ইভেন্ট
           clientX = e.touches[0].clientX;
           clientY = e.touches[0].clientY;
         } else {
-          // মাউস ক্লিক
           clientX = e.clientX;
           clientY = e.clientY;
         }
@@ -481,7 +465,6 @@
         const mouseX = (clientX - rect.left) * scaleX;
         const mouseY = (clientY - rect.top) * scaleY;
         
-        // প্রথমে চেক করি কোনো বাবলের উপরে ক্লিক/টাচ হয়েছে কিনা
         let bubbleHit = false;
         for (let i = bubbles.length - 1; i >= 0; i--) {
           const b = bubbles[i];
@@ -490,12 +473,10 @@
           const distance = Math.sqrt(dx*dx + dy*dy);
           
           if (distance < b.radius) {
-            // বাবল হিট -> স্পার্ক তৈরি করো, বাবল সরাও
             createSparks(b.x, b.y, b.color);
             bubbles.splice(i, 1);
             bubbleHit = true;
             
-            // বাবলের সংখ্যা ঠিক রাখতে কিছু সময় পর নতুন বাবল যোগ (যদি কমে যায়)
             if (bubbles.length < BUBBLE_COUNT) {
               setTimeout(() => {
                 bubbles.push({
@@ -512,30 +493,24 @@
               }, 200);
             }
             
-            // ছন্দ পরিবর্তন (যে কোন হিটেই ছন্দ বদলাবে)
             currentIdx = (currentIdx + 1) % loveLines.length;
             changeMessageWithAnimation(loveLines[currentIdx]);
             
-            break; // শুধু প্রথম বাবল হিট ধরছি
+            break;
           }
         }
         
-        // যদি কোনো বাবল hit না হয়, তাহলে শুধু নতুন বাবল তৈরি করো এবং ছন্দ পরিবর্তন করো (কোনো স্পার্ক নয়)
         if (!bubbleHit) {
-          // নতুন বাবল তৈরি ঠিক সেই পয়েন্টে
           createNewBubbleAt(mouseX, mouseY);
           
-          // ছন্দ পরিবর্তন
           currentIdx = (currentIdx + 1) % loveLines.length;
           changeMessageWithAnimation(loveLines[currentIdx]);
         }
       }
 
-      // ইভেন্ট লিসেনার: মাউস এবং টাচ উভয়ের জন্য
       canvas.addEventListener('click', handleCanvasInteraction);
       canvas.addEventListener('touchstart', handleCanvasInteraction, { passive: false });
 
-      // রেসাইজ
       window.addEventListener('resize', () => {
         resizeCanvas();
       });
