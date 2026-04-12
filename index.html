@@ -24,7 +24,7 @@
             position: relative;
         }
 
-        /* স্টারি নাইট ব্যাকগ্রাউন্ড - তারামাখা আকাশ */
+        /* স্টারি নাইট ব্যাকগ্রাউন্ড */
         body::before {
             content: '';
             position: fixed;
@@ -60,7 +60,7 @@
             100% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* ব্রাউজার টুলবার - মোবাইল ফ্রেন্ডলি */
+        /* ব্রাউজার টুলবার */
         .browser-toolbar {
             background: rgba(18, 18, 28, 0.85);
             backdrop-filter: blur(12px);
@@ -71,7 +71,6 @@
             border-bottom: 0.5px solid rgba(255, 215, 0, 0.2);
         }
 
-        /* নেভিগেশন বাটন গ্রুপ */
         .nav-group {
             display: flex;
             gap: 6px;
@@ -89,7 +88,6 @@
             border-radius: 50%;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -100,7 +98,7 @@
             transform: scale(0.95);
         }
 
-        /* সার্চ বক্স - ডান দিকে ছোট */
+        /* সার্চ বক্স */
         .search-area {
             flex: 1;
             display: flex;
@@ -162,7 +160,7 @@
             z-index: 1;
         }
 
-        /* শর্টকাট গ্রিড - মোবাইল ফ্রেন্ডলি */
+        /* শর্টকাট গ্রিড */
         .shortcuts-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -194,7 +192,6 @@
             justify-content: center;
             font-size: 28px;
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-            transition: 0.2s;
         }
 
         .shortcut span:last-child {
@@ -203,78 +200,15 @@
             font-weight: 500;
         }
 
-        /* ভিডিউয়ার (পূর্ণ পৃষ্ঠা) */
-        .viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-        }
-
-        .viewer-header {
-            background: #111118;
-            padding: 12px 16px;
+        /* ডিফল্ট ভিউয়ার - এখন রিডাইরেক্ট ব্যবহার করব */
+        .info-message {
+            flex: 1;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 12px;
-        }
-
-        .close-viewer {
-            background: #2a2a3a;
-            border: none;
             color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .viewer-url {
-            flex: 1;
-            background: #222230;
-            padding: 8px 14px;
-            border-radius: 30px;
-            color: white;
-            font-size: 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .viewer-go {
-            background: #FF0000;
-            border: none;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .viewer-iframe {
-            flex: 1;
-            width: 100%;
-            border: none;
-        }
-
-        .loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.85);
-            color: #FFD700;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            z-index: 2000;
-            display: none;
+            text-align: center;
+            padding: 20px;
         }
 
         @media (max-width: 480px) {
@@ -305,8 +239,6 @@
 <!-- টুলবার -->
 <div class="browser-toolbar">
     <div class="nav-group">
-        <button class="nav-btn" id="backBtn"><i class="fas fa-arrow-left"></i></button>
-        <button class="nav-btn" id="forwardBtn"><i class="fas fa-arrow-right"></i></button>
         <button class="nav-btn" id="homeBtn"><i class="fas fa-home"></i></button>
     </div>
     <div class="search-area">
@@ -323,17 +255,14 @@
     <div class="shortcuts-grid" id="shortcutsGrid"></div>
 </div>
 
-<!-- ভিউয়ার -->
-<div class="viewer" id="viewer">
-    <div class="viewer-header">
-        <button class="close-viewer" id="closeViewer"><i class="fas fa-times"></i></button>
-        <div class="viewer-url" id="viewerUrl"></div>
-        <button class="viewer-go" id="viewerGoBtn">Go</button>
+<!-- ইনফো মেসেজ (যখন কিছু খোলা নেই) -->
+<div class="info-message" id="infoMessage" style="display: none;">
+    <div>
+        <i class="fas fa-globe" style="font-size: 48px; color: #FFD700; margin-bottom: 15px; display: block;"></i>
+        <p>শর্টকাটে ক্লিক করুন বা লিংক দিন</p>
+        <p style="font-size: 12px; margin-top: 10px; opacity: 0.6;">YouTube, Facebook সরাসরি খুলবে</p>
     </div>
-    <iframe class="viewer-iframe" id="viewerIframe"></iframe>
 </div>
-
-<div class="loading" id="loading"><i class="fas fa-spinner fa-pulse"></i> লোড হচ্ছে...</div>
 
 <script>
     // ==================================================
@@ -343,7 +272,7 @@
     
     // ==================================================
     
-    // শর্টকাট লিস্ট - রিয়েল আইকন সহ (টিকটকের রং পরিবর্তন করা হয়েছে)
+    // শর্টকাট লিস্ট - রিয়েল আইকন সহ
     const shortcuts = [
         { name: "YouTube", icon: "fab fa-youtube", color: "#FF0000", url: "https://youtube.com/@ebh_5" },
         { name: "Facebook", icon: "fab fa-facebook-f", color: "#1877F2", url: "https://facebook.com" },
@@ -352,21 +281,15 @@
         { name: "Google", icon: "fab fa-google", color: "#4285F4", url: "https://google.com" },
         { name: "Gmail", icon: "fas fa-envelope", color: "#EA4335", url: "https://gmail.com" },
         { name: "X (Twitter)", icon: "fab fa-x-twitter", color: "#1DA1F2", url: "https://x.com" },
-        { name: "TikTok", icon: "fab fa-tiktok", color: "#00f2ea", url: "https://tiktok.com" },  // 🔴 টিকটকের কালার চেঞ্জ করা হয়েছে সায়ান/টিফানি ব্লুতে
+        { name: "TikTok", icon: "fab fa-tiktok", color: "#00f2ea", url: "https://tiktok.com" },
         { name: "Telegram", icon: "fab fa-telegram", color: "#26A5E4", url: "https://web.telegram.org" },
         { name: "LinkedIn", icon: "fab fa-linkedin-in", color: "#0A66C2", url: "https://linkedin.com" }
     ];
     
     // DOM elements
     const homepage = document.getElementById('homepage');
-    const viewer = document.getElementById('viewer');
-    const viewerIframe = document.getElementById('viewerIframe');
-    const viewerUrl = document.getElementById('viewerUrl');
+    const infoMessage = document.getElementById('infoMessage');
     const urlInput = document.getElementById('urlInput');
-    const loadingDiv = document.getElementById('loading');
-    
-    let historyStack = [];
-    let historyIndex = -1;
     
     // তারামাখা আকাশ তৈরির ফাংশন
     function createStars() {
@@ -388,70 +311,26 @@
         }
     }
     
-    // YouTube link converter
-    function convertToEmbed(link) {
-        if (!link) return link;
-        
-        let match = link.match(/youtube\.com\/@([^\/?]+)/);
-        if (match) return `https://www.youtube.com/embed?listType=user_uploads&list=${match[1]}`;
-        
-        match = link.match(/youtube\.com\/c\/([^\/?]+)/);
-        if (match) return `https://www.youtube.com/embed?listType=user_uploads&list=${match[1]}`;
-        
-        match = link.match(/youtube\.com\/channel\/([^\/?]+)/);
-        if (match) return `https://www.youtube.com/embed?listType=user_uploads&list=${match[1]}`;
-        
-        match = link.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&?#]+)/);
-        if (match) return `https://www.youtube.com/embed/${match[1]}`;
-        
-        match = link.match(/youtube\.com\/shorts\/([^&?#]+)/);
-        if (match) return `https://www.youtube.com/embed/${match[1]}`;
-        
-        return link;
-    }
-    
-    // Open link
-    function openLink(link, addToHistory = true) {
+    // লিংক ওপেন করা - সরাসরি location.href দিয়ে (iframe ছাড়া)
+    function openLink(link) {
         if (!link) return;
         
         if (!link.startsWith('http://') && !link.startsWith('https://')) {
             link = 'https://' + link;
         }
         
-        urlInput.value = link;
-        viewerUrl.textContent = link;
-        
-        const finalUrl = convertToEmbed(link);
-        viewerIframe.src = finalUrl;
-        
-        if (addToHistory) {
-            historyStack = historyStack.slice(0, historyIndex + 1);
-            historyStack.push(link);
-            historyIndex++;
-        }
-        
-        homepage.style.display = 'none';
-        viewer.style.display = 'flex';
-        showLoading();
+        // সরাসরি পেজ রিডাইরেক্ট - এতে ব্লক হবে না
+        window.location.href = link;
     }
     
-    // Show homepage
+    // হোমপেজ দেখানো
     function showHomepage() {
         homepage.style.display = 'block';
-        viewer.style.display = 'none';
-        viewerIframe.src = 'about:blank';
+        infoMessage.style.display = 'none';
         urlInput.value = '';
     }
     
-    // Show loading
-    function showLoading() {
-        loadingDiv.style.display = 'block';
-        setTimeout(() => {
-            loadingDiv.style.display = 'none';
-        }, 800);
-    }
-    
-    // Create shortcuts with real icons
+    // শর্টকাট তৈরি
     function createShortcuts() {
         const grid = document.getElementById('shortcutsGrid');
         grid.innerHTML = '';
@@ -471,36 +350,28 @@
     }
     
     // Event listeners
-    document.getElementById('goBtn').addEventListener('click', () => openLink(urlInput.value));
-    document.getElementById('viewerGoBtn').addEventListener('click', () => openLink(viewerUrl.textContent));
-    document.getElementById('closeViewer').addEventListener('click', showHomepage);
-    document.getElementById('homeBtn').addEventListener('click', showHomepage);
-    
-    document.getElementById('backBtn').addEventListener('click', () => {
-        if (historyIndex > 0) {
-            historyIndex--;
-            openLink(historyStack[historyIndex], false);
+    document.getElementById('goBtn').addEventListener('click', () => {
+        if (urlInput.value.trim()) {
+            openLink(urlInput.value);
         }
     });
     
-    document.getElementById('forwardBtn').addEventListener('click', () => {
-        if (historyIndex < historyStack.length - 1) {
-            historyIndex++;
-            openLink(historyStack[historyIndex], false);
-        }
+    document.getElementById('homeBtn').addEventListener('click', () => {
+        // হোম বাটনে ক্লিক করলে ডিফল্ট লিংকে যাবে
+        openLink(DEFAULT_LINK);
     });
     
     urlInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') openLink(urlInput.value);
+        if (e.key === 'Enter' && urlInput.value.trim()) {
+            openLink(urlInput.value);
+        }
     });
     
-    viewerIframe.addEventListener('load', showLoading);
-    
     // Initialize
-    createStars();  // তারামাখা আকাশ তৈরি
+    createStars();
     createShortcuts();
     
-    // Load default link on start
+    // পেজ লোড হলে ডিফল্ট লিংকে যাবে (সরাসরি YouTube চ্যানেল)
     setTimeout(() => {
         openLink(DEFAULT_LINK);
     }, 100);
